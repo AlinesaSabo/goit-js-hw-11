@@ -16,6 +16,12 @@ function handleSearch(event) {
 
   const form = event.currentTarget;
   const queryValue = form.elements.query.value.trim().toLowerCase();
+
+  if (!queryValue) {
+    gallery.innerHTML = '';
+    return;
+  }
+
   showLoadingSpinner();
 
   searchImagesByQuery(queryValue)
